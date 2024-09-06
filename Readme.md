@@ -59,9 +59,9 @@ export default App;
 
 | Prop           | Type           | Required       | Description    |
 | -------------- | -------------- | -------------- | -------------- |
-| Row 1 Column 1 | Row 1 Column 2 | Row 1 Column 3 | Row 1 Column 3 |
-| Row 2 Column 1 | Row 2 Column 2 | Row 2 Column 3 | Row 1 Column 3 |
-| Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 | Row 1 Column 3 |
+| faqs |Array<{ question: string; answer: string }> | Yes | An array of objects containing questions and answers for the FAQ section.|
+| contact | { url: string } | No| Optional. Adds a "Contact Us" link if users can't find the answer. |
+| colors | Object  | No | Customize colors for both light and dark modes (background, text, border). |
 
 ## Color Object Example
 
@@ -126,8 +126,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or feedback, feel free to reach me at [Mail-Me] (mailto:priyanshutiwari2901@hotmail.com).
-
-```
-
-```
+For any questions or feedback, feel free to reach me at [email protected](mailto:priyanshutiwari2901@hotmail.com)
