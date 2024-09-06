@@ -1,6 +1,6 @@
 # FAQ Component for React
 
-`pt-faq` is a customizable FAQ component for React that enables you to easily integrate a FAQ section into your web application. This component supports light and dark themes and allows you to dynamically render FAQ items with a simple and intuitive API.
+A customizable FAQ (Frequently Asked Questions) React component designed to easily integrate an FAQ section into your application. This component supports light and dark modes and allows for easy customization of styles.
 
 ## Features
 
@@ -14,11 +14,12 @@
 To install the package, use npm:
 
 ```bash
-npm install my-faq-package
+npm install pt-faq
 ```
 
 ## Usage
- - Here’s how you can use the FAQ component in your project:
+
+Here’s how you can use the FAQ component in your project:
 
 ``` 
 import React from 'react';
@@ -53,4 +54,70 @@ export default App;
 
 ```
 
+## Props 
+| Prop | Type |Required | Description |
+|-----------------|-----------------|-----------------|
+| Row 1 Column 1  | Row 1 Column 2  | Row 1 Column 3  |
+| Row 2 Column 1  | Row 2 Column 2  | Row 2 Column 3  |
+| Row 3 Column 1  | Row 3 Column 2  | Row 3 Column 3  |
 
+## Color Object Example
+
+The colors prop allows you to define custom colors for both light and dark themes.
+
+ ```
+    colors={{
+  lightMode: {
+    background: '#ffffff',
+    text: '#000000',
+    border: '#cccccc',
+  },
+  darkMode: {
+    background: '#333333',
+    text: '#ffffff',
+    border: '#444444',
+  },
+}}
+
+```
+
+## Customization
+
+- You can fully customize the colors of the FAQ component using the colors prop for both light mode and dark mode.
+
+- Add a contact link by passing the contact prop with a url.
+
+## Example of Contact Link
+
+```
+    <FAQ
+     faqs={faqs}
+     contact={{ url: 'https://yourwebsite.com/contact' }}
+    />
+```
+## Development
+
+ If you’d like to contribute or modify this package, follow these steps:
+
+```
+    git clone https://github.com/impriyanshu29/faq-npm.git
+    cd my-faq-package
+    npm install
+    npm run build
+
+```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+ 
+- This project was inspired by the need for a simple and customizable FAQ component for React applications.
+
+- Special thanks to the React community for their support and feedback.
+
+## Contact
+
+For any questions or feedback, feel free to  reach me at (mailto:priyanshutiwari2901@hotmail.com).
+
+```
