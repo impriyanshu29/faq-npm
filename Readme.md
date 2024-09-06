@@ -21,63 +21,68 @@ npm install pt-faq
 
 Here’s how you can use the FAQ component in your project:
 
-``` 
-import React from 'react';
-import FAQ from 'my-faq-package';
+```JavaScript + React
 
-const faqs = [
-  { question: 'Do you offer both men’s and women’s haircuts?', answer: 'Yes, we offer a full range of haircut services for both men and women.' },
-  { question: 'Do you offer grooming services for men?', answer: 'Yes, we offer beard trims, shaves, and more.' },
-  { question: 'Do you provide services for special occasions?', answer: 'Yes, we offer styling services for weddings and other events.' },
-  { question: 'What hygiene measures are you following?', answer: 'We adhere to strict hygiene protocols to ensure a safe environment for our clients.' }
-];
+  import React from 'react';
+  import FAQ from 'my-faq-package';
 
-const App = () => (
-  <FAQ
-    faqs={faqs}
-    colors={{
-      lightMode: {
-        background: '#f9f9f9',
-        text: '#333',
-        border: '#ccc'
-      },
-      darkMode: {
-        background: '#222',
-        text: '#ddd',
-        border: '#444'
-      }
-    }}
-  />
-);
+  const faqs = [
+    { question: 'Do you offer both men’s and women’s haircuts?', answer: 'Yes, we offer a full range of haircut services for both men and women.' },
+    { question: 'Do you offer grooming services for men?', answer: 'Yes, we offer beard trims, shaves, and more.' },
+    { question: 'Do you provide services for special occasions?', answer: 'Yes, we offer styling services for weddings and other events.' },
+    { question: 'What hygiene measures are you following?', answer: 'We adhere to strict hygiene protocols to ensure a safe environment for our clients.' }
+  ];
+
+  const App = () => (
+    <FAQ
+      faqs={faqs}
+      colors={{
+        lightMode: {
+          background: '#f9f9f9',
+          text: '#333',
+          border: '#ccc'
+        },
+        darkMode: {
+          background: '#222',
+          text: '#ddd',
+          border: '#444'
+        }
+      }}
+    />
+  );
 
 export default App;
 
 ```
 
-## Props 
-| Prop | Type |Required | Description |
-|-----------------|-----------------|-----------------|
-| Row 1 Column 1  | Row 1 Column 2  | Row 1 Column 3  |
-| Row 2 Column 1  | Row 2 Column 2  | Row 2 Column 3  |
-| Row 3 Column 1  | Row 3 Column 2  | Row 3 Column 3  |
+## Props
+
+| Prop           | Type           | Required       | Description    |
+| -------------- | -------------- | -------------- | -------------- |
+| Row 1 Column 1 | Row 1 Column 2 | Row 1 Column 3 | Row 1 Column 3 |
+| Row 2 Column 1 | Row 2 Column 2 | Row 2 Column 3 | Row 1 Column 3 |
+| Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 | Row 1 Column 3 |
 
 ## Color Object Example
 
 The colors prop allows you to define custom colors for both light and dark themes.
 
- ```
-    colors={{
-  lightMode: {
-    background: '#ffffff',
-    text: '#000000',
-    border: '#cccccc',
-  },
-  darkMode: {
-    background: '#333333',
-    text: '#ffffff',
-    border: '#444444',
-  },
-}}
+```JavaScript
+
+   colors={
+       {
+        lightMode: {
+          background: '#ffffff',
+          text: '#000000',
+          border: '#cccccc',
+        },
+        darkMode: {
+          background: '#333333',
+          text: '#ffffff',
+          border: '#444444',
+        },
+      }
+}
 
 ```
 
@@ -89,35 +94,40 @@ The colors prop allows you to define custom colors for both light and dark theme
 
 ## Example of Contact Link
 
-```
+```JavaScript + React
     <FAQ
      faqs={faqs}
      contact={{ url: 'https://yourwebsite.com/contact' }}
     />
 ```
+
 ## Development
 
- If you’d like to contribute or modify this package, follow these steps:
+If you’d like to contribute or modify this package, follow these steps:
 
-```
+```bash
+
     git clone https://github.com/impriyanshu29/faq-npm.git
     cd my-faq-package
     npm install
     npm run build
 
 ```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
- 
+
 - This project was inspired by the need for a simple and customizable FAQ component for React applications.
 
 - Special thanks to the React community for their support and feedback.
 
 ## Contact
 
-For any questions or feedback, feel free to  reach me at (mailto:priyanshutiwari2901@hotmail.com).
+For any questions or feedback, feel free to reach me at [Mail-Me] (mailto:priyanshutiwari2901@hotmail.com).
+
+```
 
 ```
