@@ -1,1 +1,1 @@
-export *  from './components/FAQ';
+export {FAQ} from "./components/FAQ"

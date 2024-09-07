@@ -8,6 +8,7 @@ A customizable FAQ (Frequently Asked Questions) React component designed to easi
 - **Light and Dark Mode Support:** Customize the appearance for both light and dark themes.
 - **Responsive Design:** Fully responsive and optimized for all screen sizes.
 - **TypeScript Support:** Built with TypeScript for better type safety and developer experience.
+- **Customizable Styles:** Use Tailwind CSS classes to customize the appearance of the FAQ component.
 
 ## Installation
 
@@ -23,31 +24,51 @@ Here’s how you can use the FAQ component in your project:
 
 ```JavaScript + React
 
-  
+// src/App.tsx
+import React from 'react';
+import { FAQ } from "pt-faq";
 
-
-import FAQ from "pt-faq";
 const faqs = [
-  { question: 'What is your return policy?', answer: 'You can return items within 30 days.' },
-  { question: 'Do you ship internationally?', answer: 'Yes, we ship worldwide.' },
-  { question: 'How do I track my order?', answer: 'You can track your order on our website.' },
-  // Add more FAQs as needed
+  {
+    question: "What is your return policy?",
+    answer: "You can return any item within 30 days for a full refund.",
+  },
+  {
+    question: "Do you offer international shipping?",
+    answer: "Yes, we ship worldwide. Shipping costs will be calculated at checkout.",
+  },
+  {
+    question: "How can I track my order?",
+    answer: "You will receive a tracking number via email once your order has shipped.",
+  },
+  {
+    question: "Can I change my order after placing it?",
+    answer: "Once an order is placed, it cannot be modified. However, you can cancel it within 1 hour of placing it.",
+  },
 ];
 
-const App = () => (
-  <FAQ 
-    faqs={faqs} 
-    classNames={{
-      section: 'bg-blue-50 dark:bg-gray-900', // Custom background
-      question: 'text-blue-700 dark:text-red-100', // Custom question text
-      answer: 'text-blue-500 dark:text-gray-300', // Custom answer text
-      border: 'border-blue-300 dark:border-gray-500' // Custom border
-    }} 
-    contact={{ url: 'https://example.com/contact' }}
-  />
-);
+const App = () => {
+  return (
+    <div className="App">
+      <FAQ
+        faqs={faqs}
+        contact={{ url: "https://example.com/contact" }}
+        classNames={{
+          section: 'mx-auto h-full max-w-7xl px-2 py-10 md:px-0 bg-gradient-to-r from-white to-gray-100 dark:from-black dark:to-gray-900',
+          container: 'mx-auto mt-8 rounded-xl max-w-3xl space-y-4 md:mt-16 ',
+          border: 'cursor-pointer rounded-md border shadow-lg transition-all duration-200 hover:shadow-lg hover:border-black',
+          question: 'flex text-lg font-semibold text-blue-600 dark:text-blue-400',  // Adjusted for clarity
+          answer: 'text-gray-600 dark:text-gray-400',
+          button: 'bg-blue-100 dark:bg-gray-700 flex w-full items-center justify-between px-4 py-5 sm:p-6',
+          link: 'text-base mt-6 text-center text-gray-600 dark:text-gray-400',
+        }}
+      />
+    </div>
+  );
+};
 
 export default App;
+
 
 ```
 

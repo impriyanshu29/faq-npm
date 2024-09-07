@@ -1,7 +1,7 @@
 {
   "name": "pt-faq",
-  "version": "1.0.4",
-  "description": "simple and customizable FAQ component for React applications.",
+  "version": "1.2.5",
+  "description": "Simple and customizable FAQ component for React applications.",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
