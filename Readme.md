@@ -16,40 +16,36 @@ To install the package, use npm:
 ```bash
 npm install pt-faq
 ```
-
+### Note: You also need to install and configure Tailwind CSS if it isn't already in your project. Follow the Tailwind CSS installation guide if necessary.
 ## Usage
 
 Here’s how you can use the FAQ component in your project:
 
 ```JavaScript + React
 
-  import React from 'react';
-  import FAQ from 'my-faq-package';
+  
 
-  const faqs = [
-    { question: 'Do you offer both men’s and women’s haircuts?', answer: 'Yes, we offer a full range of haircut services for both men and women.' },
-    { question: 'Do you offer grooming services for men?', answer: 'Yes, we offer beard trims, shaves, and more.' },
-    { question: 'Do you provide services for special occasions?', answer: 'Yes, we offer styling services for weddings and other events.' },
-    { question: 'What hygiene measures are you following?', answer: 'We adhere to strict hygiene protocols to ensure a safe environment for our clients.' }
-  ];
 
-  const App = () => (
-    <FAQ
-      faqs={faqs}
-      colors={{
-        lightMode: {
-          background: '#f9f9f9',
-          text: '#333',
-          border: '#ccc'
-        },
-        darkMode: {
-          background: '#222',
-          text: '#ddd',
-          border: '#444'
-        }
-      }}
-    />
-  );
+import FAQ from "pt-faq";
+const faqs = [
+  { question: 'What is your return policy?', answer: 'You can return items within 30 days.' },
+  { question: 'Do you ship internationally?', answer: 'Yes, we ship worldwide.' },
+  { question: 'How do I track my order?', answer: 'You can track your order on our website.' },
+  // Add more FAQs as needed
+];
+
+const App = () => (
+  <FAQ 
+    faqs={faqs} 
+    classNames={{
+      section: 'bg-blue-50 dark:bg-gray-900', // Custom background
+      question: 'text-blue-700 dark:text-red-100', // Custom question text
+      answer: 'text-blue-500 dark:text-gray-300', // Custom answer text
+      border: 'border-blue-300 dark:border-gray-500' // Custom border
+    }} 
+    contact={{ url: 'https://example.com/contact' }}
+  />
+);
 
 export default App;
 
@@ -63,36 +59,28 @@ export default App;
 | contact | { url: string } | No| Optional. Adds a "Contact Us" link if users can't find the answer. |
 | colors | Object  | No | Customize colors for both light and dark modes (background, text, border). |
 
-## Color Object Example
-
-The colors prop allows you to define custom colors for both light and dark themes.
-
-```JavaScript
-
-   colors={
-       {
-        lightMode: {
-          background: '#ffffff',
-          text: '#000000',
-          border: '#cccccc',
-        },
-        darkMode: {
-          background: '#333333',
-          text: '#ffffff',
-          border: '#444444',
-        },
-      }
-}
-
-```
 
 ## Customization
 
-- You can fully customize the colors of the FAQ component using the colors prop for both light mode and dark mode.
+
+- This package allows full customization using Tailwind CSS classes. To change the background, text, and border colors, simply pass the relevant Tailwind CSS classes via the className prop.
 
 - Add a contact link by passing the contact prop with a url.
-
-## Example of Contact Link
+### Example for light mode:
+```JavaScript + React
+  <FAQ 
+  faqs={faqItems} 
+  className="bg-white text-gray-900 border-gray-200"
+/>
+```
+### Example for dark mode:
+  ```JavaScript + React
+  <FAQ 
+  faqs={faqItems} 
+  className="bg-gray-900 text-white border-gray-700"
+/>
+```
+### Example of Contact Link
 
 ```JavaScript + React
     <FAQ
@@ -100,6 +88,9 @@ The colors prop allows you to define custom colors for both light and dark theme
      contact={{ url: 'https://yourwebsite.com/contact' }}
     />
 ```
+## Styling With Tailwind
+
+Ensure Tailwind CSS is set up in your project. You can install it by following the Tailwind CSS Installation Guide.
 
 ## Development
 
@@ -126,4 +117,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or feedback, feel free to reach me at [email protected](mailto:priyanshutiwari2901@hotmail.com)
+For any questions or feedback, feel free to reach me at [Email me](mailto:priyanshutiwari2901@hotmail.com)

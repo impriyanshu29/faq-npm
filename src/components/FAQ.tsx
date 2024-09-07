@@ -1,86 +1,70 @@
 import React, { useState } from 'react';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface FAQProps {
-  faqs: { question: string; answer: string }[];
+  faqs: FAQItem[];
   contact?: { url: string };
-  colors?: {
-    lightMode?: {
-      background?: string;
-      text?: string;
-      border?: string;
-    };
-    darkMode?: {
-      background?: string;
-      text?: string;
-      border?: string;
-    };
+  classNames?: {
+    section?: string;
+    question?: string;
+    answer?: string;
+    border?: string;
   };
 }
 
-const FAQ: React.FC<FAQProps> = ({ faqs, colors,contact }) => {
+const FAQ: React.FC<FAQProps> = ({ faqs, contact, classNames }) => {
   const [isOpen, setIsOpen] = useState<boolean[]>(Array(faqs.length).fill(false));
 
   const toggleDropdown = (index: number) => {
     setIsOpen(isOpen.map((open, i) => (i === index ? !open : open)));
   };
 
-  const defaultColors = {
-    lightMode: {
-      background: '#fff',
-      text: '#000',
-      border: '#ddd',
-    },
-    darkMode: {
-      background: '#333',
-      text: '#fff',
-      border: '#444',
-    },
-  };
-
-  const appliedColors = {
-    lightMode: { ...defaultColors.lightMode, ...colors?.lightMode },
-    darkMode: { ...defaultColors.darkMode, ...colors?.darkMode },
-  };
-
-  const isDarkMode = document.documentElement.classList.contains('dark');
-  const modeColors = isDarkMode ? appliedColors.darkMode : appliedColors.lightMode;
-
   return (
     <section
-      className="mx-auto max-w-7xl px-2 py-10"
-      style={{ backgroundColor: modeColors.background }}
+      className={`mx-auto h-full max-w-7xl px-2 py-10 md:px-0 ${classNames?.section || 'bg-gradient-to-r from-white to-gray-100 dark:from-black dark:to-gray-900'}`}
     >
-      
       <div className="mx-auto mt-8 rounded-xl max-w-3xl space-y-4 md:mt-16">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="cursor-pointer rounded-md border hover:shadow-lg transition-all duration-200"
-            style={{ borderColor: modeColors.border }}
+            className={`cursor-pointer rounded-md border shadow-lg transition-all duration-200 hover:shadow-lg hover:border-header ${classNames?.border || 'border-gray-300 dark:border-gray-600'}`}
           >
             <button
               type="button"
               className="flex w-full items-center justify-between px-4 py-5 sm:p-6"
               onClick={() => toggleDropdown(index)}
             >
-              <span className="text-lg font-semibold" style={{ color: modeColors.text }}>
+              <span className={`flex text-lg font-semibold ${classNames?.question || 'text-gray-800 dark:text-gray-200'}`}>
                 {faq.question}
               </span>
             </button>
             {isOpen[index] && (
               <div className="px-4 pb-5 sm:px-6 sm:pb-6">
-                <p style={{ color: modeColors.text }}>{faq.answer}</p>
+                <p className={`${classNames?.answer || 'text-gray-600 dark:text-gray-400'}`}>
+                  {faq.answer}
+                </p>
               </div>
             )}
           </div>
         ))}
       </div>
-      <p className="text-base mt-6 text-center">
-        Can’t find what you are looking for?{' '}
-        <a href={contact?.url} className="font-semibold" style={{ color: modeColors.text }}>
-          COntact Us 
-        </a>
-      </p>
+      {contact?.url && (
+        <p className="text-base mt-6 text-center text-gray-600 dark:text-gray-400">
+          Can’t find what you are looking for?{' '}
+          <a
+            href={contact.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            Contact Us
+          </a>
+        </p>
+      )}
     </section>
   );
 };
